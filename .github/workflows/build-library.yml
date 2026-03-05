@@ -1,0 +1,56 @@
+name: Build Plugin Library
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [plugin-updated]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout library repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install TiddlyWiki
+        run: npm install tiddlywiki
+
+      - name: Checkout all plugins
+        run: |
+          mkdir -p wiki/plugins/rimir
+          plugins=(
+            components
+            core-hook
+            doc-template
+            ext-connect
+            file-upload
+            filesystem-watcher
+            git-int
+            json-dsl
+            orga
+            orga-tools
+            realms
+            runner
+            theme
+            typed
+          )
+          for plugin in "${plugins[@]}"; do
+            git clone --depth 1 "https://github.com/rimir-cc/tw-${plugin}.git" "wiki/plugins/rimir/${plugin}"
+            rm -rf "wiki/plugins/rimir/${plugin}/.git"
+          done
+
+      - name: Build library
+        run: |
+          TIDDLYWIKI_PLUGIN_PATH="$(pwd)/wiki/plugins" \
+          npx tiddlywiki wiki --output output --build library
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output

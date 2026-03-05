@@ -1,0 +1,28 @@
+{
+    "description": "Plugin library edition for rimir plugins",
+    "plugins": [
+        "tiddlywiki/pluginlibrary"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+    "build": {
+        "library": [
+            "--makelibrary",
+            "$:/UpgradeLibrary",
+            "--savelibrarytiddlers",
+            "$:/UpgradeLibrary",
+            "[prefix[$:/plugins/rimir/]]",
+            "recipes/library/tiddlers/",
+            "$:/UpgradeLibrary/List",
+            "--savetiddler",
+            "$:/UpgradeLibrary/List",
+            "recipes/library/tiddlers.json",
+            "--rendertiddler",
+            "$:/plugins/tiddlywiki/pluginlibrary/library.template.html",
+            "index.html",
+            "text/plain"
+        ]
+    }
+}
