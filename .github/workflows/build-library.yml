@@ -27,7 +27,6 @@ jobs:
             components
             core-hook
             doc-template
-            ext-connect
             file-upload
             filesystem-watcher
             git-int
