@@ -37,7 +37,6 @@ jobs:
             git-int
             json-dsl
             orga
-            orga-tools
             realms
             runner
             theme
@@ -50,8 +49,7 @@ jobs:
 
       - name: Build library
         run: |
-          TIDDLYWIKI_PLUGIN_PATH="$(pwd)/wiki/plugins" \
-          npx tiddlywiki wiki --output output --build library
+          TIDDLYWIKI_PLUGIN_PATH="$(pwd)/wiki/plugins"           npx tiddlywiki wiki --output output --build library
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
