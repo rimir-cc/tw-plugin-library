@@ -42,6 +42,7 @@ jobs:
             theme
             typed
             explide
+            minver
           )
           for plugin in "${plugins[@]}"; do
             git clone --depth 1 "https://github.com/rimir-cc/tw-${plugin}.git" "wiki/plugins/rimir/${plugin}"
