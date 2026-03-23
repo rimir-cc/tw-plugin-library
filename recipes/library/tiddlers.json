@@ -16,6 +16,21 @@
         "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221%22%2F%3E%0A%20%20%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221%22%2F%3E%0A%20%20%3Crect%20x%3D%223%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221%22%2F%3E%0A%20%20%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221%22%2F%3E%0A%20%20%3Cline%20x1%3D%226.5%22%20y1%3D%2210%22%20x2%3D%226.5%22%20y2%3D%2214%22%2F%3E%0A%20%20%3Cline%20x1%3D%2217.5%22%20y1%3D%2210%22%20x2%3D%2217.5%22%20y2%3D%2214%22%2F%3E%0A%3C%2Fsvg%3E%0A"
     },
     {
+        "title": "$:/plugins/rimir/capture",
+        "description": "Stream-based inbox for quick capture with triage to typed entities",
+        "name": "capture",
+        "author": "rimir",
+        "version": "0.1.0",
+        "core-version": ">=5.3.0",
+        "plugin-type": "plugin",
+        "dependents": "$:/plugins/rimir/typed $:/plugins/rimir/theme",
+        "list": "readme documentation settings changelog license",
+        "type": "application/json",
+        "readme": "! Capture\n\nA generic inbox plugin for quick idea capture using streams. Throw in thoughts, ideas, and fleeting notes — then triage them into structured typed entities when ready.\n\n!! Features\n\n* **Inbox stream** — rapid keyboard-driven capture via the streams plugin\n* **Triage view** — review captures, promote to typed entities (task, meeting, etc.)\n* **Configurable** — set which stream tiddler serves as inbox\n* **Generic** — works with any typed model, not tied to a specific domain\n\n!! Prerequisites\n\n* [[Streams plugin|$:/plugins/sq/streams]] for stream-based note entry\n* [[Typed plugin|$:/plugins/rimir/typed]] for promoting captures to structured entities\n\n!! Quick start\n\n# Open the inbox view and start typing — entries are saved as stream nodes\n# When ready to triage, switch to the triage view\n# Click \"Promote\" on a capture to open the typed spawner with text pre-filled\n",
+        "requires-reload": "no",
+        "icon": "data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Crect%20x%3D%2212%22%20y%3D%228%22%20width%3D%2240%22%20height%3D%2248%22%20rx%3D%224%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%223%22%2F%3E%0A%20%20%3Cline%20x1%3D%2222%22%20y1%3D%2222%22%20x2%3D%2242%22%20y2%3D%2222%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cline%20x1%3D%2222%22%20y1%3D%2230%22%20x2%3D%2242%22%20y2%3D%2230%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cline%20x1%3D%2222%22%20y1%3D%2238%22%20x2%3D%2236%22%20y2%3D%2238%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2244%22%20cy%3D%2246%22%20r%3D%2210%22%20fill%3D%22currentColor%22%20opacity%3D%220.15%22%2F%3E%0A%20%20%3Cline%20x1%3D%2240%22%20y1%3D%2246%22%20x2%3D%2248%22%20y2%3D%2246%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cline%20x1%3D%2244%22%20y1%3D%2242%22%20x2%3D%2244%22%20y2%3D%2250%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A"
+    },
+    {
         "title": "$:/plugins/rimir/components",
         "description": "Reusable UI component framework with composable mixins and facade components",
         "name": "components",
