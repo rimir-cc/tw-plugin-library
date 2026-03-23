@@ -36,7 +36,6 @@ jobs:
             filesystem-watcher
             git-int
             json-dsl
-            orga
             realms
             runner
             theme
@@ -46,6 +45,7 @@ jobs:
             llm-connect
             statewrap
             appify
+            ext-connect
           )
           for plugin in "${plugins[@]}"; do
             git clone --depth 1 "https://github.com/rimir-cc/tw-${plugin}.git" "wiki/plugins/rimir/${plugin}"
