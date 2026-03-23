@@ -89,6 +89,22 @@ var assetList = [
         "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20rx%3D%222%22%2F%3E%0A%3Cline%20x1%3D%223%22%20y1%3D%229%22%20x2%3D%2221%22%20y2%3D%229%22%2F%3E%0A%3Cline%20x1%3D%229%22%20y1%3D%229%22%20x2%3D%229%22%20y2%3D%2221%22%2F%3E%0A%3Ccircle%20cx%3D%226%22%20cy%3D%226%22%20r%3D%221%22%20fill%3D%22maroon%22%20stroke%3D%22none%22%2F%3E%0A%3Ccircle%20cx%3D%229%22%20cy%3D%226%22%20r%3D%221%22%20fill%3D%22maroon%22%20stroke%3D%22none%22%2F%3E%0A%3C%2Fsvg%3E%0A"
     },
     {
+        "title": "$:/plugins/rimir/ext-connect",
+        "description": "HTTP endpoint for external tools — inbound (push tiddlers) and outbound (text-command extraction)",
+        "name": "ext connect",
+        "author": "rimir",
+        "version": "0.1.6",
+        "core-version": ">=5.3.0",
+        "source": "https://github.com/rimir-cc/tw-ext-connect",
+        "plugin-type": "plugin",
+        "list": "readme documentation settings changelog license",
+        "dependents": "",
+        "type": "application/json",
+        "readme": "! ext connect\n\nPush tiddlers into the wiki from external tools via CLI import — no running server needed. A shared resolution pipeline with profile-based templates, context-aware rules, and post-creation actions transforms raw input into fully-formed tiddlers.\n\n!! Key features\n\n* ''CLI import'' — primary inbound path via `--import` deserializer, no server required\n* ''Context resolution'' — templates reference context tiddlers for smart field population and rule matching\n* ''Profile-based templates'' — map profiles to template tiddlers with filter-based field resolution\n* ''Rule-based dispatch'' — ordered rules use TW filters to match context and select templates\n* ''Post-creation actions'' — template `text` field runs action widgets server-side after tiddler creation\n* ''Text-command extraction'' — outbound processing of tiddler content for external tool integration\n\n!! Prerequisites\n\n* Set `TIDDLYWIKI_CLI_MODE=1` environment variable for CLI import\n\n!! Quick start\n\nPush a tiddler via CLI:\n\n```\nTIDDLYWIKI_CLI_MODE=1 npx tiddlywiki mywiki --import input.json application/x-rimir-ext-connect\n```\n\nWhere `input.json` contains: `{\"text\": \"Hello\", \"title\": \"MyTiddler\"}`\n\n''Fallback: POST API'' (may be deprecated) — if a server is running, you can also use `POST /api/ext-connect/put-tiddler` with `X-Requested-With: TiddlyWiki` header. See the reference docs for details.\n",
+        "requires-reload": "yes",
+        "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Cpath%20d%3D%22M15%207h3a5%205%200%200%201%200%2010h-3%22%2F%3E%0A%3Cpath%20d%3D%22M9%2017H6a5%205%200%200%201%200-10h3%22%2F%3E%0A%3Cline%20x1%3D%228%22%20y1%3D%2212%22%20x2%3D%2216%22%20y2%3D%2212%22%2F%3E%0A%3C%2Fsvg%3E%0A"
+    },
+    {
         "title": "$:/plugins/rimir/file-upload",
         "description": "Upload files to /files/ with rename, delete, thumbnails, and deduplication",
         "name": "file upload",
@@ -183,22 +199,6 @@ var assetList = [
         "readme": "! minver — browser-side tiddler versioning\n\nKeep snapshot versions of your tiddlers directly in the browser. Snapshots are stored compressed in localStorage and survive page reloads.\n\n!! Key features\n\n* ''Manual snapshots'' — take a snapshot anytime from the editor preview pane\n* ''Auto-snapshots'' — automatically captures the previous version on every save\n* ''Auto-snapshots on create/delete'' — automatically captures initial state on creation and final state on deletion\n* ''Diff view'' — per-field comparison with `<$diff-text>`, integrated as an editor preview type\n* ''Field-level rollback'' — revert individual fields or the entire tiddler\n* ''Manager revert'' — revert any snapshot directly from the manager\n* ''Change-groups'' — record a session of changes (creates, edits, deletes) and review/rollback them as a unit\n* ''Compressed storage'' — uses native CompressionStream to minimize localStorage usage\n* ''Export/Import'' — transfer snapshots between wikis via a single JSON tiddler\n\n!! Quick start\n\n!!! Snapshots\n\n# Open any tiddler for editing\n# Click the eye icon in the editor toolbar and select \"snapshots\"\n# Click \"Take snapshot\" to create a manual snapshot\n# Edit the tiddler, then select your snapshot to see the diff\n# Use the undo button next to any field to revert it\n\n!!! Change-groups\n\n# Click the record button (&#x25cf;) in the page toolbar to start recording changes\n# Make your edits (create, modify, delete tiddlers)\n# Click stop (&#x25a0;) to finish — view your change-group in the \"groups\" plugin tab\n# Use \"Rollback\" to undo all changes in the group\n\n!! Prerequisites\n\n* TiddlyWiki 5.3.0+\n* Theme plugin (`$:/plugins/rimir/theme`)\n* A modern browser with CompressionStream support (Chrome 80+, Firefox 113+, Safari 16.4+)\n",
         "requires-reload": "yes",
         "icon": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2222pt%22%20height%3D%2222pt%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22%2F%3E%3Cpolyline%20points%3D%2212%206%2012%2012%2016%2014%22%2F%3E%3C%2Fsvg%3E%0A"
-    },
-    {
-        "title": "$:/plugins/rimir/orga",
-        "description": "Organisational domain model built on the typed plugin",
-        "name": "orga",
-        "author": "rimir",
-        "version": "0.1.3",
-        "core-version": ">=5.3.0",
-        "source": "https://github.com/rimir-cc/tw-orga",
-        "plugin-type": "plugin",
-        "list": "readme documentation settings changelog license",
-        "dependents": "",
-        "type": "application/json",
-        "readme": "! orga\n\nOrganisational domain model built on the typed plugin. Provides type definitions for common organisational entities like projects, tasks, teams, persons, milestones, and roadmaps.\n\n!! Key features\n\n* ''Pre-built type definitions'' — project, task, team, person, workstream, assignment, roadmap, milestone, 1on1\n* ''Hierarchical node structure'' — parent relationships between organisational entities\n* ''Field definitions'' — common attributes like status, dates, stakeholders, participants\n* ''Enum definitions'' — predefined value sets (e.g., core-status)\n* ''Extensible'' — builds on the typed plugin's inheritance model\n\n!! Prerequisites\n\n* typed plugin must be installed\n\n!! Quick start\n\nInstall plugin alongside typed. Use the Spawner to create new organisational entities. All types are immediately available in the type system.\n",
-        "requires-reload": "no",
-        "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Crect%20x%3D%229%22%20y%3D%222%22%20width%3D%226%22%20height%3D%224%22%20rx%3D%221%22%2F%3E%0A%3Crect%20x%3D%222%22%20y%3D%2218%22%20width%3D%226%22%20height%3D%224%22%20rx%3D%221%22%2F%3E%0A%3Crect%20x%3D%2216%22%20y%3D%2218%22%20width%3D%226%22%20height%3D%224%22%20rx%3D%221%22%2F%3E%0A%3Cline%20x1%3D%2212%22%20y1%3D%226%22%20x2%3D%2212%22%20y2%3D%2214%22%2F%3E%0A%3Cline%20x1%3D%225%22%20y1%3D%2214%22%20x2%3D%2219%22%20y2%3D%2214%22%2F%3E%0A%3Cline%20x1%3D%225%22%20y1%3D%2214%22%20x2%3D%225%22%20y2%3D%2218%22%2F%3E%0A%3Cline%20x1%3D%2219%22%20y1%3D%2214%22%20x2%3D%2219%22%20y2%3D%2218%22%2F%3E%0A%3C%2Fsvg%3E"
     },
     {
         "title": "$:/plugins/rimir/realms",
