@@ -42,7 +42,6 @@ jobs:
             typed
             explide
             minver
-            llm-connect
             statewrap
             appify
             ext-connect
