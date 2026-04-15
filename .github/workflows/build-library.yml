@@ -51,6 +51,7 @@ jobs:
             scattered-binaries
             file-pipeline
             external-llm-help
+            namespace
           )
           for plugin in "${plugins[@]}"; do
             git clone --depth 1 "https://github.com/rimir-cc/tw-${plugin}.git" "wiki/plugins/rimir/${plugin}"
