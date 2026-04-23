@@ -53,6 +53,8 @@ jobs:
             external-llm-help
             namespace
             cytoscape-engine
+            llm-connect
+            llm-help
           )
           for plugin in "${plugins[@]}"; do
             git clone --depth 1 "https://github.com/rimir-cc/tw-${plugin}.git" "wiki/plugins/rimir/${plugin}"
