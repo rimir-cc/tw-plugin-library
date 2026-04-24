@@ -23,7 +23,7 @@ jobs:
           node-version: '20'
 
       - name: Install TiddlyWiki
-        run: npm install tiddlywiki
+        run: npm install tiddlywiki@5.3.8
 
       - name: Checkout all plugins
         run: |
