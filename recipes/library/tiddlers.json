@@ -268,6 +268,22 @@
         "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Cpath%20d%3D%22M8%203H7a2%202%200%200%200-2%202v4a2%202%200%200%201-2%202%202%202%200%200%201%202%202v4a2%202%200%200%200%202%202h1%22%2F%3E%0A%3Cpath%20d%3D%22M16%203h1a2%202%200%200%201%202%202v4a2%202%200%200%200%202%202%202%202%200%200%200-2%202v4a2%202%200%200%201-2%202h-1%22%2F%3E%0A%3C%2Fsvg%3E"
     },
     {
+        "title": "$:/plugins/rimir/knowledge-app",
+        "description": "Zettelkasten-style knowledge app on top of namespace + appify",
+        "name": "knowledge app",
+        "author": "rimir",
+        "version": "0.1.12",
+        "core-version": ">=5.4.0",
+        "plugin-type": "plugin",
+        "dependents": "$:/plugins/rimir/appify $:/plugins/rimir/namespace $:/plugins/rimir/statewrap $:/plugins/rimir/theme",
+        "soft-dependents": "$:/plugins/rimir/doc-template",
+        "list": "readme documentation settings home browse note write changelog license",
+        "type": "application/json",
+        "readme": "! Knowledge App\n\nA zettelkasten-style note app for TiddlyWiki. Notes live under the `knowledge/…` title namespace and link via short refs (`[[Foo]]`) thanks to the `rimir/namespace` plugin.\n\n!! Why\n\nDeep folder hierarchies (`knowledge/topics/programming/typescript/Foo`) are great for organisation but hostile to fluent linking. The namespace plugin already resolves short refs by walking up the source tiddler's path; this app gives those notes a proper home with browse / backlinks / quick-capture / maintenance views.\n\n!! Features\n\n* ''Areas'' — first-class knowledge areas (LLM, IT-Security, Health, Gaming + user-creatable) live as `knowledge/<area>/…`. Topbar pill row switches between them; quick-capture and the `\\context` line follow the active area automatically. Cross-area linking works out of the box via namespace walk-up.\n* ''Quick-capture'' — title + body modal in the topbar; new notes land at `knowledge/<area>/inbox/…` (or `knowledge/inbox/…` when no area is active) with the right `\\context` pragma pre-set.\n* ''Three-tier status'' — fleeting, developing, evergreen (TZK-style). One click to promote.\n* ''Backlinks panel'' — reads namespace's reverse index (no setup needed).\n* ''Write tab'' — orphans, stubs, dead-ends, broken refs. Maintenance at a glance.\n* ''Search'' — incremental search over title + text.\n* ''Mount `kn`'' — orga / priv / any tiddler can write `[[kn/topics/foo]]` to reach knowledge content.\n* ''Custom pseudo `_index''' — `[[knowledge/topics/foo/_index]]` resolves to that topic's `index` or `README` tiddler. (The pseudo expands inside an absolute ref; bare `[[_index]]` does not auto-find the current topic's index.)\n\n!! Prerequisites\n\n* [[appify|$:/plugins/rimir/appify]] — app platform\n* [[namespace|$:/plugins/rimir/namespace]] — short-ref resolution\n* [[theme|$:/plugins/rimir/theme]] — shared `rr-` styles\n* [[doc-template|$:/plugins/rimir/doc-template]] (soft) — full documentation hub\n\n!! Quick start\n\n# Open the FAB and pick \"Knowledge\".\n# Click the +Note button in the topbar; type a title and (optionally) some body wikitext.\n# The note opens. Type `[[Foo]]` somewhere to link a (possibly future) note.\n# Open the Write tab to see orphans / stubs / dead-ends / broken refs.\n\nThe plugin enables four namespace feature flags on install (walk-up, aliases, pseudo-expansion). Toggle them in the namespace plugin's settings if you ever need to disable them.\n",
+        "requires-reload": "yes",
+        "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236b4cff%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%2018h6%22%2F%3E%3Cpath%20d%3D%22M10%2022h4%22%2F%3E%3Cpath%20d%3D%22M12%202a7%207%200%200%200-4%2012.7c.5.4.8.9.9%201.5l.1%201.8h6l.1-1.8c.1-.6.4-1.1.9-1.5A7%207%200%200%200%2012%202z%22%2F%3E%3C%2Fsvg%3E%0A"
+    },
+    {
         "title": "$:/plugins/rimir/llm-connect",
         "description": "In-browser LLM integration with tool use — connect TiddlyWiki to Claude, OpenAI, Azure, and other LLM APIs",
         "author": "rimir",
