@@ -59,6 +59,7 @@ jobs:
             mindmap
             mindmap-elixir
             present
+            streams-extras
           )
           for plugin in "${plugins[@]}"; do
             git clone --depth 1 "https://github.com/rimir-cc/tw-${plugin}.git" "wiki/plugins/rimir/${plugin}"
