@@ -278,6 +278,23 @@ var assetList = [
         "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Cpath%20d%3D%22M8%203H7a2%202%200%200%200-2%202v4a2%202%200%200%201-2%202%202%202%200%200%201%202%202v4a2%202%200%200%200%202%202h1%22%2F%3E%0A%3Cpath%20d%3D%22M16%203h1a2%202%200%200%201%202%202v4a2%202%200%200%200%202%202%202%202%200%200%200-2%202v4a2%202%200%200%201-2%202h-1%22%2F%3E%0A%3C%2Fsvg%3E"
     },
     {
+        "title": "$:/plugins/rimir/kind",
+        "description": "Lightweight schema engine for TiddlyWiki — one tiddler per type, namespaced, hand-rolled UI",
+        "name": "kind",
+        "author": "rimir",
+        "version": "0.1.0",
+        "core-version": ">=5.4.0",
+        "source": "https://github.com/rimir-cc/tw-kind",
+        "plugin-type": "plugin",
+        "list": "readme documentation settings overview type-builder creator validator changelog license",
+        "dependents": "$:/plugins/rimir/scribe",
+        "soft-dependents": "$:/plugins/rimir/doc-template",
+        "type": "application/json",
+        "readme": "! kind\n\nLightweight schema engine for TiddlyWiki. Define each type's fields, constraints, title formula, and namespace memberships on a single tiddler. Spawn, edit, view, and validate typed instances through hand-rolled UIs with zero plugin dependencies.\n\n!! Key features\n\n* ''One tiddler per type'' — schema lives in fields and a JSON-encoded `kind.fields` array on a single tiddler; body stays free for prose documentation\n* ''Namespaces'' — types declare `kind.namespaces` (multi-membership); a namespace switcher scopes what's visible\n* ''Auto-computed titles'' — types declare a `kind.title-formula` filter; new instances get their title computed from sibling fields\n* ''Live + bulk validation'' — inline errors as you edit, plus a wiki-wide validator report\n* ''Typeahead refs'' — filterable text input + dropdown + selected pills with × remove; scales to large option sets\n* ''Configurable stream-river view'' — each type chooses which fields appear in its in-river field bar; empty = bar hidden\n* ''Hand-rolled UI'' — zero dependency on other rimir plugins (theme/components/typed)\n\n!! Prerequisites\n\nNo external prerequisites. Optional: `$:/plugins/rimir/doc-template` for the branded documentation hub.\n\n!! Quick start\n\n# Open the ''type-builder'' tab and define a new type (key, caption, icon, namespaces, title-formula, fields JSON).\n# Open the ''creator'' tab, pick the type, fill the fields, click Create.\n# Open the resulting tiddler in the story river — the stream-view field bar appears at the top.\n# Use the ''validator'' tab for a wiki-wide constraint scan.\n",
+        "requires-reload": "no",
+        "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22teal%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Crect%20x%3D%223%22%20y%3D%226%22%20width%3D%2218%22%20height%3D%2214%22%20rx%3D%222%22%2F%3E%0A%3Cpath%20d%3D%22M3%2010%20L21%2010%22%2F%3E%0A%3Cpath%20d%3D%22M8%203%20L16%203%20L18%206%20L6%206%20Z%22%2F%3E%0A%3Ccircle%20cx%3D%228%22%20cy%3D%2215%22%20r%3D%221%22%2F%3E%0A%3Cline%20x1%3D%2211%22%20y1%3D%2215%22%20x2%3D%2217%22%20y2%3D%2215%22%2F%3E%0A%3C%2Fsvg%3E%0A"
+    },
+    {
         "title": "$:/plugins/rimir/knowledge-app",
         "description": "Zettelkasten-style knowledge app on top of namespace + appify",
         "name": "knowledge app",
@@ -458,6 +475,23 @@ var assetList = [
         "readme": "! scattered binaries\n\nAuto-discover binary files (PDF, DOCX, XLSX, etc.) scattered across subdirectories and serve them via `_canonical_uri` tiddlers — no manual `tiddlywiki.files` needed per directory.\n\n!! Features\n\n* ''Profile-based discovery'' — configure which directories to scan via JSON profiles\n* ''Boot cleanup'' — removes duplicate tiddlers created by TW's boot scanner for binary files\n* ''HTTP route'' — serves files via configurable route prefix with path traversal protection\n* ''Meta-sidecar aware'' — skips files that have `.meta` sidecars (defers to TW native handling)\n* ''Extension filtering'' — only known binary extensions are served (blocks `.env`, `.json`, etc.)\n\n!! Optional integration\n\nWhen ''file-upload'' is also installed:\n\n* Discovered locations are automatically registered with the location registry\n* Deleting/renaming a scattered-binary tiddler cascades to derived artifacts (extractions, summaries, etc.)\n* Locations can be toggled writable via file-upload's settings UI\n\n!! Prerequisites\n\n* TiddlyWiki 5.3.0+ (Node.js server edition)\n\n!! Quick Start\n\n# Configure profiles in plugin settings (default profile scans `tiddlers/tender/#NNN/documents/`)\n# Restart TiddlyWiki — binary files are auto-discovered and registered as `_canonical_uri` tiddlers\n# Access files via the configured route prefix (e.g., `/tender-docs/%23512/filename.pdf`)\n",
         "requires-reload": "yes",
         "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M13%202H6a2%202%200%200%200-2%202v16a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V9z%22%2F%3E%3Cpolyline%20points%3D%2213%202%2013%209%2020%209%22%2F%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2216%22%20r%3D%222%22%2F%3E%3Cpath%20d%3D%22M14%2016h4%22%2F%3E%3Cpath%20d%3D%22M14%2013h4%22%2F%3E%3C%2Fsvg%3E%0A"
+    },
+    {
+        "title": "$:/plugins/rimir/scribe",
+        "description": "Bidirectional sync between a tiddler field (or sub-path inside a JSON-encoded field) and a state tiddler — pluggable type handlers",
+        "name": "scribe",
+        "author": "rimir",
+        "version": "0.1.0",
+        "core-version": ">=5.4.0",
+        "source": "https://github.com/rimir-cc/tw-scribe",
+        "plugin-type": "plugin",
+        "list": "readme documentation changelog license",
+        "soft-dependents": "$:/plugins/rimir/doc-template",
+        "dependents": "",
+        "type": "application/json",
+        "readme": "! scribe\n\nBidirectional sync between a tiddler field (or sub-path inside a JSON-encoded field) and a state tiddler. Wraps input widgets so they can edit nested values inside a JSON field as if they were plain DataTiddler indexes.\n\n!! Key features\n\n* ''Bidirectional sync'' — state-tiddler ↔ target field, re-prepared on external changes\n* ''Sub-path support'' — sync a value at <code>path=\"0,caption\"</code> inside the JSON-encoded field, not just whole fields\n* ''Pluggable type handlers'' via <code>module-type: scribetype</code> modules\n* ''Three handlers ship'' — <code>text/plain</code>, <code>application/json</code>, <code>application/x-string-array</code>\n* ''Empty-state = delete'' — clearing the state removes the sub-path key, useful for \"un-set this property\" semantics\n* ''Zero plugin dependencies''\n\n!! Prerequisites\n\nNo external prerequisites. Optional: <code>$:/plugins/rimir/doc-template</code> for the branded documentation hub.\n\n!! Quick start\n\n```\n<$scribe tiddler=\"Task1\" field=\"kind.fields\" path=\"0,caption\" type=\"text/plain\">\n  <$edit-text tiddler=<<state>> field=\"text\" tag=\"input\"/>\n</$scribe>\n```\n\n!! Attribution\n\nThe bidirectional sync pattern was inspired by Flibbles' <code>FieldTranscriberWidget</code> in [ext[tw5-graph|https://github.com/flibbles/tw5-graph]]. This is an independent reimplementation with sub-path support added.\n",
+        "requires-reload": "yes",
+        "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22darkslateblue%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Cpath%20d%3D%22M3%207%20L21%207%22%2F%3E%0A%3Cpath%20d%3D%22M3%2012%20L21%2012%22%2F%3E%0A%3Cpath%20d%3D%22M3%2017%20L21%2017%22%2F%3E%0A%3Cpath%20d%3D%22M8%204%20L8%2020%22%2F%3E%0A%3Cpath%20d%3D%22M16%204%20L16%2020%22%2F%3E%0A%3C%2Fsvg%3E%0A"
     },
     {
         "title": "$:/plugins/rimir/statewrap",
