@@ -62,6 +62,8 @@ jobs:
             streams-extras
             scribe
             kind
+            cascade-palette
+            orga-palette
             worga
           )
           for plugin in "${plugins[@]}"; do
