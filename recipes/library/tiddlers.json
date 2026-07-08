@@ -100,6 +100,21 @@
         "icon": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20128%20128%22%20width%3D%2248%22%20height%3D%2248%22%3E%0A%20%20%3Ccircle%20cx%3D%2264%22%20cy%3D%2264%22%20r%3D%2258%22%20fill%3D%22none%22%20stroke%3D%22%232B7CE9%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2240%22%20cy%3D%2245%22%20r%3D%2210%22%20fill%3D%22%23D2E5FF%22%20stroke%3D%22%232B7CE9%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2290%22%20cy%3D%2235%22%20r%3D%2210%22%20fill%3D%22%23D2E5FF%22%20stroke%3D%22%232B7CE9%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2275%22%20cy%3D%2285%22%20r%3D%2210%22%20fill%3D%22%23D2E5FF%22%20stroke%3D%22%232B7CE9%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2235%22%20cy%3D%2290%22%20r%3D%228%22%20fill%3D%22%23D2E5FF%22%20stroke%3D%22%232B7CE9%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cline%20x1%3D%2248%22%20y1%3D%2248%22%20x2%3D%2282%22%20y2%3D%2238%22%20stroke%3D%22%23848484%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cline%20x1%3D%2244%22%20y1%3D%2253%22%20x2%3D%2270%22%20y2%3D%2279%22%20stroke%3D%22%23848484%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cline%20x1%3D%2286%22%20y1%3D%2244%22%20x2%3D%2278%22%20y2%3D%2276%22%20stroke%3D%22%23848484%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cline%20x1%3D%2238%22%20y1%3D%2283%22%20x2%3D%2269%22%20y2%3D%2288%22%20stroke%3D%22%23848484%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Crect%20x%3D%2255%22%20y%3D%2220%22%20rx%3D%224%22%20ry%3D%224%22%20width%3D%2235%22%20height%3D%2275%22%20fill%3D%22none%22%20stroke%3D%22%232B7CE9%22%20stroke-width%3D%222%22%20stroke-dasharray%3D%224%2C3%22%20opacity%3D%220.5%22%2F%3E%0A%3C%2Fsvg%3E%0A"
     },
     {
+        "title": "$:/plugins/rimir/dashboard",
+        "name": "dashboard",
+        "description": "Free-form dashboards: drop tiddlers onto a canvas and arrange them freely",
+        "author": "rimir",
+        "version": "0.0.1",
+        "core-version": ">=5.4.0",
+        "plugin-type": "plugin",
+        "list": "readme documentation settings changelog license",
+        "dependents": "",
+        "type": "application/json",
+        "readme": "! Dashboard\n\nTurn any tiddler into a //dashboard//: a free-form canvas onto which you drop other tiddlers as freely-arrangeable tiles.\n\n!! What it does\n\n* Tag a tiddler with <<tag \"$:/tags/rimir/dashboard\">> and its body becomes a canvas.\n* **Add tiles** by dragging tiddlers onto the canvas from anywhere in the wiki, or by typing a title and pressing //Add tile//.\n* **Move** a tile by dragging its title bar; **resize** it from the bottom-right corner. Positions are saved immediately.\n* Each tile transcludes its target tiddler's body.\n\n!! Quick start\n\n# Click //New dashboard// in the page controls (right sidebar → Tools), or tag any tiddler <<tag \"$:/tags/rimir/dashboard\">>.\n# Drag a few tiddlers onto the canvas.\n# Rearrange them however you like.\n\n!! How it is stored\n\nEach tile is its own small tiddler tagged <<tag \"$:/tags/rimir/dashboard/tile\">> with a `dashboard` field (the parent dashboard) and `target` / `x` / `y` / `w` / `h` fields. No JSON blobs — deleting a dashboard's tiles is just deleting those tiddlers.\n\n!! Prerequisites\n\nTiddlyWiki >= 5.4.0. No other plugin dependencies.\n",
+        "requires-reload": "yes",
+        "icon": "data:image/svg+xml,%3Csvg%20class%3D%22tc-image-dashboard%20tc-image-button%22%20width%3D%2222pt%22%20height%3D%2222pt%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22currentColor%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%228%22%20height%3D%225%22%20rx%3D%221%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%2210%22%20width%3D%228%22%20height%3D%2211%22%20rx%3D%221%22%2F%3E%3Crect%20x%3D%2213%22%20y%3D%223%22%20width%3D%228%22%20height%3D%2211%22%20rx%3D%221%22%2F%3E%3Crect%20x%3D%2213%22%20y%3D%2216%22%20width%3D%228%22%20height%3D%225%22%20rx%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A"
+    },
+    {
         "title": "$:/plugins/rimir/diffsync",
         "description": "Field-level tiddler comparison with selective sync",
         "name": "diffsync",
