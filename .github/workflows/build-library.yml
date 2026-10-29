@@ -63,6 +63,7 @@ jobs:
             streams-extras
             scribe
             kind
+            ports
             cascade-palette
             worga
             dashboard
