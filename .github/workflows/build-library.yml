@@ -64,6 +64,8 @@ jobs:
             scribe
             kind
             ports
+            kind-streams
+            streams-ports
             cascade-palette
             worga
             dashboard
