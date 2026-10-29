@@ -442,6 +442,23 @@ var assetList = [
         "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%3Cpath%20d%3D%22M4%203%20L4%2021%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M4%206%20L10%206%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M4%2012%20L10%2012%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M4%2018%20L10%2018%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M10%206%20L10%2012%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2213%22%20cy%3D%226%22%20r%3D%221.5%22%20fill%3D%22maroon%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2213%22%20cy%3D%2212%22%20r%3D%221.5%22%20fill%3D%22maroon%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2213%22%20cy%3D%2218%22%20r%3D%221.5%22%20fill%3D%22maroon%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M16%2012%20L20%2012%22%20stroke-dasharray%3D%222%202%22%2F%3E%0A%3C%2Fsvg%3E%0A"
     },
     {
+        "title": "$:/plugins/rimir/okf",
+        "description": "Open Knowledge Format (OKF 0.2) for frontmatter markdown files",
+        "name": "okf",
+        "author": "rimir",
+        "version": "0.1.0",
+        "core-version": ">=5.3.0",
+        "source": "https://github.com/rimir-cc/tw-okf",
+        "plugin-type": "plugin",
+        "list": "readme documentation settings changelog license",
+        "dependents": "$:/plugins/rimir/frontmatter $:/plugins/rimir/theme",
+        "soft-dependents": "$:/plugins/rimir/doc-template",
+        "type": "application/json",
+        "readme": "! OKF\n\nRead and write `.md` files in the [[Open Knowledge Format|https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf]] (OKF 0.2) — markdown concepts with YAML frontmatter that knowledge tools and agents exchange. Builds on `rimir/frontmatter` through its extension hooks.\n\n!! Features\n\n* ''OKF 0.2 frontmatter'' — full YAML (nested maps, flow lists): `generated`, `verified`, `sources`, `usage_window` round-trip as JSON fields\n* ''Concept types'' — OKF `type` lives in `okf.type`; the tiddler type is always `text/markdown`\n* ''Concept IDs = paths'' — files stay where they are; new concepts are created at `<title>.md` with `/` as folders\n* ''Exact titles'' — `tw.title` is written only when the file path can't reproduce the tiddler title (e.g. `:`)\n* ''Scope filter'' — all `.md` files by default, or only tiddlers matching a filter (e.g. `[tag[okf]]`)\n* ''Safety rule'' — files whose `type` is not a TW content type are always handled as OKF, so foreign OKF files are never destroyed\n* ''Lossless'' — unknown keys are kept: scalars as fields, nested values in `okf.extra`\n\n!! Prerequisites\n\n* TiddlyWiki 5.3.0+ (Node.js server edition)\n* `rimir/frontmatter` and the official `tiddlywiki/markdown` plugin\n* ''Restart the server after installing'' — the mapping runs in server-side startup and save code\n\n!! Quick Start\n\n# Install the plugin and restart the server\n# Drop OKF `.md` files into `tiddlers/` — `tiddlers/metrics/revenue.md` becomes tiddler `metrics/revenue`, its `type: Metric` the field `okf.type`, its `title` the `caption`\n# Edit as usual — saving writes a valid OKF document back to the same file\n# Optional: restrict OKF to some tiddlers under Settings (e.g. `[tag[okf]]`)\n",
+        "requires-reload": "yes",
+        "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%226%22%20cy%3D%226%22%20r%3D%223%22%2F%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%226%22%20r%3D%223%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2218%22%20r%3D%223%22%2F%3E%3Cline%20x1%3D%228.5%22%20y1%3D%227.5%22%20x2%3D%2210.5%22%20y2%3D%2215.5%22%2F%3E%3Cline%20x1%3D%2215.5%22%20y1%3D%227.5%22%20x2%3D%2213.5%22%20y2%3D%2215.5%22%2F%3E%3Cline%20x1%3D%229%22%20y1%3D%226%22%20x2%3D%2215%22%20y2%3D%226%22%2F%3E%3C%2Fsvg%3E%0A"
+    },
+    {
         "title": "$:/plugins/rimir/present",
         "description": "Fullscreen slide player for ordered tiddler sets, with reveal.js-style 2D navigation and link-driven deep-dive breadcrumb",
         "name": "present",
