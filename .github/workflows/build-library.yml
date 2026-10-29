@@ -48,6 +48,7 @@ jobs:
             capture
             diffsync
             frontmatter
+            okf
             scattered-binaries
             file-pipeline
             external-llm-help
