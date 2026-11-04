@@ -147,6 +147,23 @@
         "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22maroon%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Cpath%20d%3D%22M14%202H6a2%202%200%200%200-2%202v16a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V8z%22%2F%3E%0A%3Cpolyline%20points%3D%2214%202%2014%208%2020%208%22%2F%3E%0A%3Cline%20x1%3D%228%22%20y1%3D%2213%22%20x2%3D%2216%22%20y2%3D%2213%22%2F%3E%0A%3Cline%20x1%3D%228%22%20y1%3D%2217%22%20x2%3D%2213%22%20y2%3D%2217%22%2F%3E%0A%3C%2Fsvg%3E"
     },
     {
+        "title": "$:/plugins/rimir/drop-attach",
+        "description": "Drop or paste binary files onto a tiddler: stored in the wiki as base64, linked by configurable actions",
+        "name": "drop attach",
+        "author": "rimir",
+        "version": "0.1.0",
+        "core-version": ">=5.4.0",
+        "source": "https://github.com/rimir-cc/tw-drop-attach",
+        "plugin-type": "plugin",
+        "list": "readme documentation settings changelog license",
+        "dependents": "",
+        "soft-dependents": "$:/plugins/rimir/doc-template $:/plugins/rimir/theme",
+        "type": "application/json",
+        "readme": "! Drop attach\n\nDrop or paste binary files onto a tiddler. The file is stored in the wiki as base64 and becomes a tiddler right away; your own action tiddlers decide how it is linked.\n\n!! Features\n\n* ''Drop onto a tiddler'' — drag a binary file (PDF, image, office document, archive, …) onto a tiddler in the story or a stream row; it becomes a tiddler immediately — no `$:/Import` dialog, no server. Several files at once work too.\n* ''Paste'' — click a tiddler to select it (a thin bar on its left edge marks it), then paste a file or screenshot. Without a selected tiddler a notice asks you to select one.\n* ''Your actions'' — what happens after the upload — link to the drop target via `parent`, more fields, anything — are action tiddlers in your wiki, with `<target>`, `<new>`, `<filename>`, `<type>`, `<size>`, `<source>`. The plugin ships none.\n* ''Open below the target'' — an open filter decides which new tiddlers open in the story, right after the one you dropped on (default: none).\n* ''Only binaries'' — text files (`.md`, `.json`, `.tid`, …) go to TiddlyWiki's normal import; dropping outside tiddlers behaves as before.\n* ''Configurable'' — title pattern, size limit (30 MB), pasted file names, extra file types, drop targets.\n* ''Extract later'' — a command line turns attachments into external files with `_canonical_uri`.\n\n!! Prerequisites\n\n* TiddlyWiki 5.4.0 or later\n* Optional: `sq/streams` (stream rows as drop targets), `rimir/doc-template` (branded docs)\n\n!! Quick Start\n\n# Install the plugin and reload.\n# To link uploads to the tiddler you drop on, create this tiddler:\n#> `$:/config/rimir/drop-attach/actions/link-parent`, tag `$:/tags/rimir/drop-attach/action`, text: `<$action-setfield $tiddler=<<new>> parent=<<target>>/>`\n# Drag a PDF from your file manager onto a tiddler.\n# To paste: click a tiddler, then Ctrl+V.\n",
+        "requires-reload": "yes",
+        "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%235778d8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M20.5%2011.5%2012.6%2019.4a5%205%200%200%201-7.1-7.1l8.3-8.3a3.3%203.3%200%200%201%204.7%204.7l-8.3%208.3a1.7%201.7%200%200%201-2.4-2.4l7.6-7.6%22%2F%3E%3C%2Fsvg%3E%0A"
+    },
+    {
         "title": "$:/plugins/rimir/explide",
         "description": "Interactive testcase composition IDE",
         "author": "rimir",
