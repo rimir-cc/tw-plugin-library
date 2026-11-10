@@ -362,6 +362,23 @@ var assetList = [
         "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22teal%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Cpath%20d%3D%22M4%206%20L14%206%22%2F%3E%0A%3Cpath%20d%3D%22M7%2012%20L14%2012%22%2F%3E%0A%3Cpath%20d%3D%22M7%2018%20L12%2018%22%2F%3E%0A%3Ccircle%20cx%3D%224%22%20cy%3D%2212%22%20r%3D%221%22%2F%3E%0A%3Ccircle%20cx%3D%224%22%20cy%3D%2218%22%20r%3D%221%22%2F%3E%0A%3Crect%20x%3D%2216%22%20y%3D%2214%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221.5%22%20fill%3D%22teal%22%20stroke%3D%22none%22%2F%3E%0A%3C%2Fsvg%3E%0A"
     },
     {
+        "title": "$:/plugins/rimir/kind-work-focus",
+        "description": "Bridge kind and work-focus — drag an item onto Create tiles that open kind's create form prefilled (link, assignee = me)",
+        "name": "kind work focus",
+        "author": "rimir",
+        "version": "0.0.1",
+        "core-version": ">=5.4.0",
+        "source": "https://github.com/rimir-cc/tw-kind-work-focus",
+        "plugin-type": "plugin",
+        "list": "readme documentation settings changelog license",
+        "dependents": "$:/plugins/rimir/kind $:/plugins/rimir/work-focus",
+        "soft-dependents": "$:/plugins/rimir/doc-template",
+        "type": "application/json",
+        "readme": "! Kind work focus\n\nThe bridge between ''kind'' and ''work-focus''. Drag a row in the work-focus panel onto a tile of the ring: \"Create ▸ Task\" opens kind's create form, already filled with the link to the dragged item and with you as assignee. \"Assign to me\" sets the assignee in one release. An info line shows how many children an item has.\n\n!! Features\n\n* ''Create tiles'' — the Create group gets one tile per kind the dragged item can spawn (`kind.spawns` of its kind: the new instance copies the item's fields) and one per child kind of its kind (no copy). A kind that is both appears once, as a spawn.\n* ''Kind's own form'' — the tile opens the create form of kind (type, constraints, defaults, enums), with the parent ref set to the item and the assignee set to //me//. The item is marked `＋ <caption of the new one>` when you press ''Create'' in that form, not before. Cancel or Esc leaves no mark.\n* ''Assign to me'' — a tile in the Status group. It sets the me field of the item to //me//; on a multi field it adds //me// and keeps the others. It is shown only when it can do something.\n* ''Children info'' — the info part `children[:<kind>]` prints \"3 tasks · 1 done\": kind instances that list the item as parent, and how many pass the done filter.\n* ''Pure wikitext'' — recipes, actions, one info part and an engine tiddler of `kwf.*` functions, plugged into the tags of work-focus. No JS, and work-focus itself is not changed.\n\n!! Prerequisites\n\n* TiddlyWiki 5.4.0 or later\n* `rimir/kind` 0.1.100 or later (the create form accepts `seed` and `after-link`) and `rimir/work-focus`\n* Optional: `rimir/theme` (`rr-` styles in settings), `rimir/doc-template` (branded docs)\n\n!! Quick Start\n\n# Install the plugin next to kind 0.1.100 and work-focus and restart the server (a plugin is loaded at startup; the bridge itself has no JS).\n# Set `$:/config/rimir/kind-work-focus/me` to the title of your person tiddler (settings tab).\n# Give a kind spawn entries, for example the field `kind.spawns: task` on the type `topic`, and let the kind of the child accept the parent (`task.parent` accepts `topic`).\n# Open the work-focus panel, press a topic row, drag to the right and release on the Create group (a single tile runs at once) or fan it out and pick a tile.\n# Fill kind's form and press ''Create''. Reopen the panel: the row carries `＋ <caption>`.\n",
+        "requires-reload": "yes",
+        "icon": "data:image/svg+xml,%3Csvg%20width%3D%2222pt%22%20height%3D%2222pt%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23d8704a%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%223%22%2F%3E%3Cpath%20d%3D%22M12%209V4M12%204l-2.5%202.5M12%204l2.5%202.5%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%226%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%226%22%20rx%3D%221.5%22%2F%3E%3C%2Fsvg%3E%0A"
+    },
+    {
         "title": "$:/plugins/rimir/knowledge-app",
         "description": "Zettelkasten-style knowledge app on top of namespace + appify",
         "name": "knowledge app",
