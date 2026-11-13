@@ -56,6 +56,7 @@ jobs:
             cytoscape-engine
             llm-connect
             llm-help
+            llm-inline
             knowledge-app
             mindmap
             mindmap-elixir
