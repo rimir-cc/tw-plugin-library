@@ -10,6 +10,12 @@ on:
 permissions:
   contents: write
 
+# Two plugin pushes close together dispatch two builds; only one can push gh-pages.
+# Queue them instead (the newest pending build supersedes older pending ones).
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
